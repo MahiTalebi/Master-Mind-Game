@@ -40,15 +40,14 @@ main {
   background-color: #c0c0c0;
   border: 4px solid #ddb892;
 }
-.game__guide {
+header button {
   background-color: #d77a61;
   color: white;
   font-size: 40px;
 }
-.game__guide:hover {
+header button:hover {
   background-color: #da6646;
 }
-
 .middle__section {
   height: 300px;
 }
