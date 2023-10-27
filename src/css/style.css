@@ -48,3 +48,27 @@ main {
 .game__guide:hover {
   background-color: #da6646;
 }
+
+.middle__section {
+  height: 300px;
+}
+.red {
+  background-color: #e5383b;
+}
+.green {
+  background-color: #43aa8b;
+}
+.blue {
+  background-color: #277da1;
+}
+.gray {
+  background-color: #736f72;
+}
+.white {
+  background-color: #e5e6e4;
+}
+.selected__colors > div div {
+  width: 22px;
+  height: 22px;
+  background-color: #c0c0c0;
+}
