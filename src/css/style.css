@@ -71,3 +71,11 @@ header button:hover {
   height: 22px;
   background-color: #c0c0c0;
 }
+.Game__options button {
+  background-color: #d77a61;
+  color: white;
+  font-size: 40px;
+}
+.Game__options button:hover {
+  background-color: #da6646;
+}
