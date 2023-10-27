@@ -79,3 +79,6 @@ header button:hover {
 .Game__options button:hover {
   background-color: #da6646;
 }
+.Game__options img {
+  opacity: 0.6;
+}
