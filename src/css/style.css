@@ -103,3 +103,13 @@ header button:hover,
 .card > h5 {
   font-size: 60px;
 }
+
+.correct {
+  background-color: #b9fbc0 !important;
+}
+.incorrect {
+  background-color: #ffa69e !important;
+}
+.maybe {
+  background-color: #fdffb6 !important;
+}
