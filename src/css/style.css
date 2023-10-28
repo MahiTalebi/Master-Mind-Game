@@ -17,16 +17,16 @@ html {
   transition: 0.6s;
 }
 
-.hard__click {
+.hard__button {
   background-color: #c75146c4;
 }
-.soft__click {
+.easy__button {
   background-color: #a3b18ac4;
 }
-.hard__click:hover {
+.hard__button:hover {
   background-color: #c75146;
 }
-.soft__click:hover {
+.easy__button:hover {
   background-color: #a3b18a;
 }
 main {
