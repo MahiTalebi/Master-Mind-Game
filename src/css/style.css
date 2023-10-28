@@ -13,8 +13,8 @@ html {
   top: 0;
   background: url(../image/background.jpg) no-repeat center center / cover;
   font-size: 60px;
-  transform: scale(0);
-  transition: 0.6s;
+  transform: translateX(0);
+  transition: 2s;
 }
 
 .hard__button {
