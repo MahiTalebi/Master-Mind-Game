@@ -4,6 +4,7 @@ const modal = document.querySelector(".modal");
 const guideColor = document.querySelector(".target__color");
 const selectedColor = document.querySelector(".selected__colors");
 const colorsButtons = document.querySelector(".colors__buttons");
+const enterClick = document.querySelector("#enter");
 
 let targetColors = [];
 let selectColor = [];
@@ -21,6 +22,7 @@ let colors = [
 easyMode.addEventListener("click", showSoftPage);
 hardMode.addEventListener("click", showHardPage);
 colorsButtons.addEventListener("click", colorsClicked);
+enterClick.addEventListener("click", submit);
 
 function showSoftPage() {
   addTargetColors(5);
@@ -50,6 +52,33 @@ function showHardPage() {
 function colorsClicked(e) {
   if (e.target.tagName == "BUTTON") {
     addColor(e.target.id);
+  }
+}
+function submit() {
+  for (let i = 0; i < targetColors.length; i++) {
+    if (selectColor[i] === targetColors[i]) {
+      guideColor.children[i].classList.add("correct");
+    } else if (selectColor[i] !== targetColors[i]) {
+      if (targetColors.includes(selectColor[i])) {
+        guideColor.children[i].classList.add("maybe");
+      } else if (!targetColors.includes(selectColor[i])) {
+        guideColor.children[i].classList.add("incorrect");
+      }
+    } else {
+      alert("Error");
+    }
+  }
+  let isAllCorrect = true;
+  for (let i = 0; i < guideColor.children.length; i++) {
+    if (!guideColor.children[i].classList.contains("correct")) {
+      isAllCorrect = false;
+      break;
+    }
+  }
+  if (isAllCorrect) {
+    alert("you win");
+  } else {
+    alert("try again");
   }
 }
 
