@@ -8,14 +8,14 @@ const colorsButtons = document.querySelector(".colors__buttons");
 let targetColors = [];
 let selectColor = [];
 let colors = [
-  { name: "red", color: "#e5383b" },
-  { name: "green", color: "#43aa8b" },
-  { name: "blue", color: "#277da1" },
-  { name: "gray", color: "#736f72" },
-  { name: "white", color: "#e5e6e4" },
-  { name: "pink", color: "#e5383b" },
-  { name: "orange", color: "#e5383b" },
-  { name: "violet", color: "#e5383b" },
+  "red",
+  "green",
+  "blue",
+  "gray",
+  "white",
+  "pink",
+  "orange",
+  "violet",
 ];
 
 easyMode.addEventListener("click", showSoftPage);
