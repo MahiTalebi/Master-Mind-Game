@@ -57,43 +57,46 @@ header button:hover,
 .colors__buttons {
   width: 50%;
 }
-.red {
+#red {
   background-color: #e5383b;
 }
-.green {
+#green {
   background-color: #43aa8b;
 }
-.blue {
+#blue {
   background-color: #277da1;
 }
-.gray {
+#gray {
   background-color: #736f72;
 }
-.white {
+#white {
   background-color: #e5e6e4;
 }
-.pink {
+#pink {
   background-color: #f4acb7;
 }
-.orange {
+#orange {
   background-color: #eb5e28;
 }
-.violet {
+#violet {
   background-color: #a663cc;
 }
-.red,
-.green,
-.blue,
-.gray,
-.white,
-.pink,
-.orange,
-.violet {
-  border: 4px solid #ddb892;
+#red,
+#green,
+#blue,
+#gray,
+#white,
+#pink,
+#orange,
+#violet {
+  border: 2px solid black;
+}
+.colors__buttons button {
+  border: 4px solid #ddb892 !important;
 }
 .colors__buttons button:hover {
   transition: 0.2s;
-  border: 1px solid #ddb892;
+  border: 1px solid #ddb892 !important;
 }
 .selected__colors > div div {
   width: 22px;

@@ -6,6 +6,7 @@ const selectedColor = document.querySelector(".selected__colors");
 const colorsButtons = document.querySelector(".colors__buttons");
 
 let targetColors = [];
+let selectColor = [];
 let colors = [
   { name: "red", color: "#e5383b" },
   { name: "green", color: "#43aa8b" },
@@ -19,6 +20,7 @@ let colors = [
 
 easyMode.addEventListener("click", showSoftPage);
 hardMode.addEventListener("click", showHardPage);
+colorsButtons.addEventListener("click", colorsClicked);
 
 function showSoftPage() {
   addTargetColors(5);
@@ -34,15 +36,34 @@ function showSoftPage() {
                              <div class="rounded-circle"></div>
                              <div class="rounded-circle"></div>
                              <div class="rounded-circle"></div></div>`;
-  colorsButtons.innerHTML = `<button class="red p-4 mx-2 rounded-circle"></button>
-                          <button class="green p-4 m-2 rounded-circle"></button>
-                          <button class="blue p-4 m-2 rounded-circle"></button>
-                          <button class="gray p-4 m-2 rounded-circle"></button>
-                          <button class="white p-4 m-2 rounded-circle"></button>`;
+  colorsButtons.innerHTML = `<button id="red" class="p-4 mx-2 rounded-circle"></button>
+                             <button id="green" class="p-4 m-2 rounded-circle"></button>
+                             <button id="blue" class="p-4 m-2 rounded-circle"></button>
+                             <button id="gray" class="p-4 m-2 rounded-circle"></button>
+                             <button id="white" class="p-4 m-2 rounded-circle"></button>`;
 }
 function showHardPage() {
-  addTargetColors(7);
+  addTargetColors(8);
   modal.style.transform = "translateX(-100%)";
+}
+
+function colorsClicked(e) {
+  if (e.target.tagName == "BUTTON") {
+    addColor(e.target.id);
+  }
+}
+
+function addColor(color) {
+  if (selectColor.length < targetColors.length) {
+    selectColor.push(color);
+  } else alert("Please Press Enter Button");
+
+  for (let x = 0; x < targetColors.length; x++) {
+    if (selectedColor.children[0].children[x].id === "") {
+      selectedColor.children[0].children[x].id = `${color}`;
+      break;
+    }
+  }
 }
 
 function addTargetColors(number) {
