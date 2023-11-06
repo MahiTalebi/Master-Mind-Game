@@ -10,6 +10,7 @@ const lastModal = document.querySelector(".last__modal");
 const gameGuide = document.querySelector(".game__guide");
 const GameGuideCaption = document.querySelector(".card");
 const okClick = document.querySelector(".ok__click");
+const changeLevel = document.querySelector(".change__level");
 
 let targetColors = [];
 let selectColor = [];
@@ -36,6 +37,7 @@ colorsButtons.addEventListener("click", colorsClicked);
 enterClick.addEventListener("click", submit);
 gameGuide.addEventListener("click", gameGuideShow);
 okClick.addEventListener("click", gameGuideHide);
+changeLevel.addEventListener("click", changeLevelShow);
 
 function showSoftPage() {
   addTargetColors(5);
@@ -61,11 +63,15 @@ function showHardPage() {
   addTargetColors(8);
   modal.style.transform = "translateX(-100%)";
 }
+
 function gameGuideShow() {
   GameGuideCaption.style.transform = "translateY(100%)";
 }
 function gameGuideHide() {
   GameGuideCaption.style.transform = "translateY(-100%)";
+}
+function changeLevelShow() {
+  location.reload();
 }
 
 function colorsClicked(e) {
