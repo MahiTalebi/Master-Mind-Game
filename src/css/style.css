@@ -124,6 +124,9 @@ header button:hover,
   background-color: #c0c0c0;
   transition: 1s;
 }
+.ok__click {
+  transition: 1s;
+}
 .card h5 {
   font-size: 40px;
 }

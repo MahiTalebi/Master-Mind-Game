@@ -7,6 +7,9 @@ const colorsButtons = document.querySelector(".colors__buttons");
 const enterClick = document.querySelector("#enter");
 const selectedLog = document.querySelector(".selected__log");
 const lastModal = document.querySelector(".last__modal");
+const gameGuide = document.querySelector(".game__guide");
+const GameGuideCaption = document.querySelector(".card");
+const okClick = document.querySelector(".ok__click");
 
 let targetColors = [];
 let selectColor = [];
@@ -31,6 +34,8 @@ easyMode.addEventListener("click", showSoftPage);
 hardMode.addEventListener("click", showHardPage);
 colorsButtons.addEventListener("click", colorsClicked);
 enterClick.addEventListener("click", submit);
+gameGuide.addEventListener("click", gameGuideShow);
+okClick.addEventListener("click", gameGuideHide);
 
 function showSoftPage() {
   addTargetColors(5);
@@ -55,6 +60,12 @@ function showSoftPage() {
 function showHardPage() {
   addTargetColors(8);
   modal.style.transform = "translateX(-100%)";
+}
+function gameGuideShow() {
+  GameGuideCaption.style.transform = "translateY(100%)";
+}
+function gameGuideHide() {
+  GameGuideCaption.style.transform = "translateY(-100%)";
 }
 
 function colorsClicked(e) {
