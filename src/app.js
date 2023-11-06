@@ -11,6 +11,7 @@ const gameGuide = document.querySelector(".game__guide");
 const GameGuideCaption = document.querySelector(".card");
 const okClick = document.querySelector(".ok__click");
 const changeLevel = document.querySelector(".change__level");
+const removeClick = document.querySelector("#remove");
 
 let targetColors = [];
 let selectColor = [];
@@ -38,6 +39,7 @@ enterClick.addEventListener("click", submit);
 gameGuide.addEventListener("click", gameGuideShow);
 okClick.addEventListener("click", gameGuideHide);
 changeLevel.addEventListener("click", changeLevelShow);
+removeClick.addEventListener("click", removeClickHandler);
 
 function showSoftPage() {
   addTargetColors(5);
@@ -159,6 +161,18 @@ function submit() {
       }
     }
   }
+}
+function removeClickHandler() {
+  let childDiv = selectedLog.lastElementChild.children[0].children[0].children;
+  let lastDivWithId = null;
+  for (let i = 0; i < childDiv.length; i++) {
+    let div = childDiv[i];
+    let id = div.getAttribute("id");
+    if (id) {
+      lastDivWithId = div;
+    }
+  }
+  lastDivWithId.removeAttribute("id");
 }
 
 function addColor(color) {
