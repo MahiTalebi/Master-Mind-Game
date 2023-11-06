@@ -5,9 +5,17 @@ const guideColor = document.querySelector(".target__color");
 const selectedColor = document.querySelector(".selected__colors");
 const colorsButtons = document.querySelector(".colors__buttons");
 const enterClick = document.querySelector("#enter");
+const selectedLog = document.querySelector(".selected__log");
+const lastModal = document.querySelector(".last__modal");
 
 let targetColors = [];
 let selectColor = [];
+
+let easyMaxAttempt = 10;
+let hardMaxAttempt = 15;
+let attempt = 1;
+let logNumber = 0;
+
 let colors = [
   "red",
   "green",
@@ -54,42 +62,102 @@ function colorsClicked(e) {
     addColor(e.target.id);
   }
 }
+
 function submit() {
-  for (let i = 0; i < targetColors.length; i++) {
-    if (selectColor[i] === targetColors[i]) {
-      guideColor.children[i].classList.add("correct");
-    } else if (selectColor[i] !== targetColors[i]) {
-      if (targetColors.includes(selectColor[i])) {
-        guideColor.children[i].classList.add("maybe");
-      } else if (!targetColors.includes(selectColor[i])) {
-        guideColor.children[i].classList.add("incorrect");
-      }
-    } else {
-      alert("Error");
-    }
-  }
-  let isAllCorrect = true;
-  for (let i = 0; i < guideColor.children.length; i++) {
-    if (!guideColor.children[i].classList.contains("correct")) {
-      isAllCorrect = false;
-      break;
-    }
-  }
-  if (isAllCorrect) {
-    alert("you win");
+  if (selectColor.length !== targetColors.length) {
+    alert("Empty Input is Invalid, Fill All Color Input");
   } else {
-    alert("try again");
+    for (let i = 0; i < targetColors.length; i++) {
+      if (selectColor[i] === targetColors[i]) {
+        guideColor.children[i].classList.remove("incorrect");
+        guideColor.children[i].classList.remove("maybe");
+        guideColor.children[i].classList.add("correct");
+      } else if (selectColor[i] !== targetColors[i]) {
+        if (targetColors.includes(selectColor[i])) {
+          guideColor.children[i].classList.add("maybe");
+        } else if (!targetColors.includes(selectColor[i])) {
+          guideColor.children[i].classList.remove("maybe");
+          guideColor.children[i].classList.add("incorrect");
+        }
+      } else {
+        alert("Error");
+      }
+    }
+    let isAllCorrect = true;
+    for (let i = 0; i < guideColor.children.length; i++) {
+      if (selectColor.toString() !== targetColors.toString()) {
+        isAllCorrect = false;
+        break;
+      }
+    }
+
+    if (isAllCorrect) {
+      for (i = 0; i < targetColors.length; i++) {
+        guideColor.children[i].id = targetColors[i];
+      }
+      lastModal.style.transform = "translateX(0)";
+      lastModal.style.background = "#43aa8b7b";
+      lastModal.innerHTML = "You Win";
+    } else if (!isAllCorrect) {
+      selectColor = [];
+
+      if (targetColors.length == 5 && attempt < easyMaxAttempt) {
+        selectedLog.innerHTML += `<div class="selected__colors${attempt}">
+        <div class="selected__colors">
+          <div class="d-flex justify-content-end gap-3 mx-5 my-2">
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+          </div>
+        </div>
+      </div>`;
+
+        attempt++;
+        logNumber++;
+      } else if (targetColors.length == 8 && attempt < hardMaxAttempt) {
+        selectedLog.innerHTML += `<div class="selected__colors${attempt}">
+        <div class="selected__colors">
+          <div class="d-flex justify-content-end gap-3 mx-5 my-2">
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+            <div class="rounded-circle"></div>
+          </div>
+        </div>
+      </div>`;
+
+        logNumber++;
+        attempt++;
+      } else {
+        for (i = 0; i < targetColors.length; i++) {
+          guideColor.children[i].id = targetColors[i];
+        }
+        lastModal.style.transform = "translateX(0)";
+      }
+    }
   }
 }
 
 function addColor(color) {
   if (selectColor.length < targetColors.length) {
     selectColor.push(color);
-  } else alert("Please Press Enter Button");
+  }
 
   for (let x = 0; x < targetColors.length; x++) {
-    if (selectedColor.children[0].children[x].id === "") {
-      selectedColor.children[0].children[x].id = `${color}`;
+    if (
+      selectedLog.children[logNumber].children[0].children[0].children[x].id ===
+      ""
+    ) {
+      selectedLog.children[logNumber].children[0].children[0].children[
+        x
+      ].id = `${color}`;
+
       break;
     }
   }

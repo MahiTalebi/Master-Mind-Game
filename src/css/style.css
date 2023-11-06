@@ -51,35 +51,35 @@ header button:hover,
 .Game__options div button:hover {
   background-color: #da6646;
 }
-.middle__section {
-  height: 300px;
+.middle__section > div {
+  height: 370px;
 }
 .colors__buttons {
   width: 50%;
 }
 #red {
-  background-color: #e5383b;
+  background-color: #e5383b !important;
 }
 #green {
-  background-color: #43aa8b;
+  background-color: #43aa8b !important;
 }
 #blue {
-  background-color: #277da1;
+  background-color: #277da1 !important;
 }
 #gray {
-  background-color: #736f72;
+  background-color: #736f72 !important;
 }
 #white {
-  background-color: #e5e6e4;
+  background-color: #e5e6e4 !important;
 }
 #pink {
-  background-color: #f4acb7;
+  background-color: #f4acb7 !important;
 }
 #orange {
-  background-color: #eb5e28;
+  background-color: #eb5e28 !important;
 }
 #violet {
-  background-color: #a663cc;
+  background-color: #a663cc !important;
 }
 #red,
 #green,
@@ -103,17 +103,26 @@ header button:hover,
   height: 22px;
   background-color: #c0c0c0;
 }
-
+.Game__options {
+  position: relative;
+}
 .Game__options img {
+  position: absolute;
+  transform: translateY(-50%);
   opacity: 0.6;
 }
+.Game__options div {
+  position: absolute;
+  transform: translateY(-50%);
+}
+
 .card {
   position: absolute;
   left: 0;
   bottom: 100%;
   width: 100%;
   background-color: #c0c0c0;
-  transition: 0.6s;
+  transition: 1s;
 }
 .card h5 {
   font-size: 40px;
@@ -130,4 +139,13 @@ header button:hover,
 }
 .maybe {
   background-color: #fdffb6 !important;
+}
+.last__modal {
+  position: absolute;
+  top: 0;
+  background: #e639467b;
+  font-size: 60px;
+  transform: translateX(-100%);
+  transition: 0.5s;
+  font-family: cursive;
 }
