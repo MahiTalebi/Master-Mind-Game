@@ -55,11 +55,11 @@ function showSoftPage() {
                              <div class="rounded-circle"></div>
                              <div class="rounded-circle"></div>
                              <div class="rounded-circle"></div></div>`;
-  colorsButtons.innerHTML = `<button id="red" class="p-4 mx-2 rounded-circle"></button>
-                             <button id="green" class="p-4 m-2 rounded-circle"></button>
-                             <button id="blue" class="p-4 m-2 rounded-circle"></button>
-                             <button id="gray" class="p-4 m-2 rounded-circle"></button>
-                             <button id="white" class="p-4 m-2 rounded-circle"></button>`;
+  colorsButtons.innerHTML = `<button id="red" class="rounded-circle"></button>
+                             <button id="green" class="rounded-circle"></button>
+                             <button id="blue" class="rounded-circle"></button>
+                             <button id="gray" class="rounded-circle"></button>
+                             <button id="white" class="rounded-circle"></button>`;
 }
 function showHardPage() {
   addTargetColors(8);
@@ -116,14 +116,14 @@ function submit() {
       }
       lastModal.style.transform = "translateX(0)";
       lastModal.style.background = "#43aa8b7b";
-      lastModal.innerHTML = "You Win";
+      lastModal.innerHTML = `<p> You Win </p>`;
     } else if (!isAllCorrect) {
       selectColor = [];
 
       if (targetColors.length == 5 && attempt < easyMaxAttempt) {
         selectedLog.innerHTML += `<div class="selected__colors${attempt}">
         <div class="selected__colors">
-          <div class="d-flex justify-content-end gap-3 mx-5 my-2">
+          <div class="d-flex justify-content-end gap-3">
             <div class="rounded-circle"></div>
             <div class="rounded-circle"></div>
             <div class="rounded-circle"></div>
@@ -138,7 +138,7 @@ function submit() {
       } else if (targetColors.length == 8 && attempt < hardMaxAttempt) {
         selectedLog.innerHTML += `<div class="selected__colors${attempt}">
         <div class="selected__colors">
-          <div class="d-flex justify-content-end gap-3 mx-5 my-2">
+          <div class="d-flex justify-content-end gap-3">
             <div class="rounded-circle"></div>
             <div class="rounded-circle"></div>
             <div class="rounded-circle"></div>

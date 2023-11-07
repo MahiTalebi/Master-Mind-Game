@@ -9,32 +9,19 @@
       href="./src/favicon/favicon2.png"
       type="image/x-icon"
     />
-    <!-- bootstrap css -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
     <!-- style css -->
     <link rel="stylesheet" href="./src/css/style.css" />
     <title>Master Mind Game</title>
   </head>
   <body>
-    <div
-      class="modal w-100 vh-100 d-flex justify-content-center align-items-center"
-    >
-      <button class="hard__button border-0 px-5 mx-4 rounded">HARD</button>
-      <button class="easy__button border-0 px-5 mx-4 rounded">Easy</button>
+    <div class="modal d-flex justify-content-center align-items-center">
+      <button class="hard__button border-0 rounded">HARD</button>
+      <button class="easy__button border-0 rounded">Easy</button>
     </div>
-    <main class="container-fluid w-100 vh-100">
+    <main class="container-fluid">
       <header class="d-flex align-items-start">
-        <button class="change__level border-0 rounded-circle px-2 m-3">
-          Level
-        </button>
-        <div
-          class="target__color w-100 d-flex justify-content-center mt-5 gap-3"
-        >
+        <button class="change__level border-0 rounded-circle">Level</button>
+        <div class="target__color d-flex justify-content-center gap-3">
           <div class="rounded-circle"></div>
           <div class="rounded-circle"></div>
           <div class="rounded-circle"></div>
@@ -45,10 +32,8 @@
           <div class="rounded-circle"></div>
         </div>
         <div>
-          <button class="game__guide border-0 rounded-circle px-2 m-3">
-            Guide
-          </button>
-          <div class="card my-2 col-12">
+          <button class="game__guide border-0 rounded-circle">Guide</button>
+          <div class="card rounded">
             <h5 class="card-header">game guide</h5>
             <div class="card-body">
               <h5 class="card-title">
@@ -56,7 +41,7 @@
                 Yellow: Place is incorrect but color is correct <br />
                 Red: Place and color are incorrect
               </h5>
-              <button class="ok__click border-0 rounded-circle px-3">ok</button>
+              <button class="ok__click border-0 rounded-circle">ok</button>
             </div>
           </div>
         </div>
@@ -64,20 +49,20 @@
       <div class="row middle__section">
         <div class="col d-flex justify-content-center align-items-center">
           <div class="colors__buttons">
-            <button id="red" class="p-4 mx-2 rounded-circle"></button>
-            <button id="green" class="p-4 m-2 rounded-circle"></button>
-            <button id="blue" class="p-4 m-2 rounded-circle"></button>
-            <button id="gray" class="p-4 m-2 rounded-circle"></button>
-            <button id="white" class="p-4 m-2 rounded-circle"></button>
-            <button id="pink" class="p-4 m-2 rounded-circle"></button>
-            <button id="orange" class="p-4 m-2 rounded-circle"></button>
-            <button id="violet" class="p-4 m-2 rounded-circle"></button>
+            <button id="red" class="rounded-circle"></button>
+            <button id="green" class="rounded-circle"></button>
+            <button id="blue" class="rounded-circle"></button>
+            <button id="gray" class="rounded-circle"></button>
+            <button id="white" class="rounded-circle"></button>
+            <button id="pink" class="rounded-circle"></button>
+            <button id="orange" class="rounded-circle"></button>
+            <button id="violet" class="rounded-circle"></button>
           </div>
         </div>
-        <div class="selected__log col mt-2">
+        <div class="selected__log col">
           <div class="selected__colors0">
             <div class="selected__colors">
-              <div class="d-flex justify-content-end gap-3 mx-5 my-2">
+              <div class="d-flex justify-content-end gap-3">
                 <div class="selected rounded-circle"></div>
                 <div class="selected rounded-circle"></div>
                 <div class="selected rounded-circle"></div>
@@ -91,30 +76,24 @@
           </div>
         </div>
       </div>
-      <div class="Game__options container-fluid mt-5 d-flex">
+      <div class="Game__options container-fluid d-flex">
         <img
           class="rounded-circle"
           src="./src/image/pic-1.png"
           alt=""
           width="80px"
         />
-        <div class="d-flex w-100 d-flex justify-content-center">
-          <button id="reset" class="border-0 rounded-circle px-2 m-3">
-            Reset
-          </button>
-          <button id="remove" class="border-0 rounded-circle px-2 m-3">
-            Remove
-          </button>
-          <button id="enter" class="border-0 rounded-circle px-2 m-3">
-            Enter
-          </button>
+        <div class="d-flex d-flex justify-content-center">
+          <button id="reset" class="border-0 rounded-circle">Reset</button>
+          <button id="remove" class="border-0 rounded-circle">Remove</button>
+          <button id="enter" class="border-0 rounded-circle">Enter</button>
         </div>
       </div>
     </main>
     <div
       class="last__modal w-100 vh-100 d-flex justify-content-center align-items-center"
     >
-      Game Over
+      <p>Game Over</p>
     </div>
     <script src="./src/app.js"></script>
   </body>

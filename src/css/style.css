@@ -1,3 +1,10 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 @font-face {
   font-family: streusel;
   src: url(../font/StreuselKuchen-Regular.ttf);
@@ -7,8 +14,84 @@ body,
 html {
   font-family: streusel;
 }
+:root {
+  --primary-color: #d77a61;
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+}
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+.direction-column {
+  flex-direction: column;
+}
+.gap-3 {
+  gap: 1rem;
+}
+.rounded-circle {
+  border-radius: 50%;
+}
+.rounded {
+  border-radius: 0.375rem;
+}
+.border-0 {
+  border: none;
+}
+.col {
+  flex: 1 0 0%;
+}
+.row > * {
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+
+button {
+  cursor: pointer;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.container-fluid {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .modal {
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   background: url(../image/background.jpg) no-repeat center center / cover;
@@ -19,9 +102,13 @@ html {
 
 .hard__button {
   background-color: #c75146c4;
+  padding: 0.5rem 3rem;
+  margin: 0 1.5rem;
 }
 .easy__button {
   background-color: #a3b18ac4;
+  padding: 0.5rem 3rem;
+  margin: 0 1.5rem;
 }
 .hard__button:hover {
   background-color: #c75146;
@@ -30,21 +117,29 @@ html {
   background-color: #a3b18a;
 }
 main {
+  width: 100%;
+  height: 100vh;
   background: url(../image/background-2.jpg) no-repeat center center / cover;
+}
+.target__color {
+  width: 100%;
 }
 
 .target__color div {
   width: 70px;
   height: 70px;
+  margin-top: 3rem;
   background-color: #c0c0c0;
   border: 4px solid #ddb892;
 }
 header button,
 .card button,
 .Game__options div button {
-  background-color: #d77a61;
+  background-color: var(--primary-color);
   color: white;
   font-size: 40px;
+  padding: 0.5rem;
+  margin: 1rem;
 }
 header button:hover,
 .card button:hover,
@@ -92,6 +187,8 @@ header button:hover,
   border: 2px solid black;
 }
 .colors__buttons button {
+  padding: 1.5rem;
+  margin: 0.5rem;
   border: 4px solid #ddb892 !important;
 }
 .colors__buttons button:hover {
@@ -104,16 +201,25 @@ header button:hover,
   background-color: #c0c0c0;
 }
 .Game__options {
+  z-index: 1;
+  margin-top: 3rem;
   position: relative;
 }
 .Game__options img {
   position: absolute;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   opacity: 0.6;
 }
 .Game__options div {
+  width: 100%;
   position: absolute;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
+}
+.selected__log {
+  margin-top: 0.5rem !important;
+}
+.selected__colors > div {
+  margin: 0.5rem 3rem !important;
 }
 
 .card {
@@ -125,13 +231,27 @@ header button:hover,
   transition: 1s;
 }
 .ok__click {
+  padding: 0.5rem 1rem !important;
   transition: 1s;
+  margin-left: 0 !important;
 }
 .card h5 {
   font-size: 40px;
+  font-weight: 400;
+}
+.card-header {
+  font-size: 40px;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  flex: 1 1 auto;
+}
+.card-body {
+  padding: 0 1rem;
+  flex: 1 1 auto;
 }
 .card > h5 {
   font-size: 60px;
+  border-bottom: solid 1px rgb(128, 128, 128);
 }
 
 .correct {
@@ -144,6 +264,9 @@ header button:hover,
   background-color: #fdffb6 !important;
 }
 .last__modal {
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   background: #e639467b;
@@ -151,4 +274,35 @@ header button:hover,
   transform: translateX(-100%);
   transition: 0.5s;
   font-family: cursive;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+}
+
+.last__modal p {
+  font-family: "Alfa Slab One", cursive;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  animation: waviy 1s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+@keyframes waviy {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+
+@media screen and (max-width: 744px) {
+  .colors__buttons {
+    width: 100%;
+  }
+  .target__color div {
+    width: 40px;
+    height: 40px;
+  }
 }
